@@ -49,7 +49,15 @@
         &__item{
             width: 230px;
         }
-    }    
+    }   
+}
+
+@media(max-width: 885px) {
+     .reviews {
+        &__text {
+            width: 570px;            
+        }
+    }
 }
 
 @media(max-width: 767px) {
@@ -114,7 +122,69 @@
             margin-top: 14px;
         }
     }
+    .carousel {        
+        padding: 70px 0;
+    }       
     
+    .reviews {
+        .title {
+            font-size: 25px;
+        }
+        &__item:first-of-type {
+            margin-top: 55px;
+        }
+        &__text {
+            width: 500px;            
+        }
+        &__descr {                      
+            font-size: 14px;                  
+        }
+    }
+}
+
+@media(max-width: 709px) {
+    .reviews {
+       &__text {
+           width: 450px;            
+       }
+   }
+}
+
+@media(max-width: 660px) {
+    .carousel {
+        padding: 55px 0;
+    }
+    .reviews {       
+        &__item{
+            flex-direction: column;             
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        
+        &__item:first-of-type {
+            margin-top: 38px;
+        }
+
+        &__item:last-of-type {
+            margin-bottom: 0;
+        }      
+
+        &__text {
+            margin-top: 10px;
+            width: 570px;
+            text-align: center;
+            padding: 0 5px;          
+        }
+        &__subtitle {              
+            text-align: center;
+        }
+        &__count {
+            text-align: center;
+        }
+        &__descr {
+            text-align: center;
+        }
+   }
 }
 
 @media(max-width: 575px) {
@@ -169,7 +239,24 @@
         &__descr{           
             font-size: 14px;           
         }
-    }    
+    }
+
+    .slick-dots button {
+        height: 10px;
+        width: 10px;
+    }
+    
+    .reviews {
+        .title {
+            font-size: 20px;
+        }      
+        &__text {
+            width: 100%;            
+        }
+        &__descr {                      
+            font-size: 12px;                  
+        }
+    }
 }
 
 @media (max-width: 320px) {
@@ -194,8 +281,7 @@
             .button{
                 margin-top: 4px;
             }
-        }
-       
-    }  
+        }       
+    } 
 }
 
