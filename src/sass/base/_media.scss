@@ -49,7 +49,13 @@
         &__item{
             width: 230px;
         }
-    }   
+    }
+    
+    .catalog {
+        &__content {
+            justify-content: space-around;            
+        }
+    }
 }
 
 @media(max-width: 885px) {
@@ -138,6 +144,21 @@
         }
         &__descr {                      
             font-size: 14px;                  
+        }
+    }
+}
+
+@media(max-width: 730px) {
+    .carousel {
+        padding: 56px 0;
+    }
+    .catalog {
+        &__tabs {
+            flex-direction: column;
+            margin-top: 25px;            
+        }
+        &__tab {
+            margin-top: 10px;
         }
     }
 }
@@ -240,7 +261,6 @@
             font-size: 14px;           
         }
     }
-
     .slick-dots button {
         height: 10px;
         width: 10px;
@@ -255,6 +275,21 @@
         }
         &__descr {                      
             font-size: 12px;                  
+        }
+    }
+
+    .footer {
+        &__info {
+            width: 320px;
+            height: 210px;
+            padding: 30px;
+        }
+        &__addr {
+            font-size: 16px;
+            margin-bottom: 23px;
+        }
+        &__phone {
+            margin-bottom: 30px;
         }
     }
 }
@@ -282,6 +317,26 @@
                 margin-top: 4px;
             }
         }       
-    } 
+    }
+    .title {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .consultation {
+        padding: 55px 0 60px 0;
+        min-height: 580px;
+        &__descr {
+            margin-top: 40px;
+            font-size: 16px;
+        }
+    }
+
+    .footer {
+        &__info {
+            width: 310px;
+        }
+    }
+   
 }
 
