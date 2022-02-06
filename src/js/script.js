@@ -55,19 +55,43 @@ $(document).ready(function(){
         })
     });
 
-   
-    $('#consultation-form').validate();
-    $('#consultation form').validate({
-        rules: {
-            name: "required",
-            phone: "required",
-            email: {
-                required: true,
-                email: true
+    // Валидация формы для отправки данных
+    function valideForm (form) {
+        $(form).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Пожалуйста, введите свое имя",
+                    minlength: jQuery.validator.format("Введите не менее {0} символов") 
+                },
+                phone: "Пожалуйста введите свой телефон",
+                email: {
+                    required: "Пожалуйста, введите свою почту",
+                    email: "Введен некорректный адрес почты"
+                }
             }
-        }
-    });
-    $('#order form').validate();
+        });
+    };
+
+    valideForm('#consultation-form');
+    valideForm('#consultation form');
+    valideForm('#order form');
+
+    // настройка маски для ввода номера телефона
+    $('input[name=phone]').mask("+7 (999) 999-99-99");
+
+
+
 
 
 
