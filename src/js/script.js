@@ -27,7 +27,7 @@ $(document).ready(function(){
             $(this).on('click', function(e){
                 e.preventDefault();
                 $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
-                $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
+                $('.catalog-item__reverse').eq(i).toggleClass('catalog-item__reverse_active');
             })
         });
     };
@@ -90,11 +90,65 @@ $(document).ready(function(){
     // настройка маски для ввода номера телефона
     $('input[name=phone]').mask("+7 (999) 999-99-99");
 
+   
+    $('form').submit(function(e) {
+        e.preventDefault(); //отменяем стандартное поведение браузера (отменяем перезагрузку страницы)
+        // настраиваем отправку данных на сервер        
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+            $('form').trigger('reset');
+        });
+        return false;
+    });
 
 
+    // $('form').submit(function(e) {
+    //     e.preventDefault();
+    //     let data = $(this).serialize();
+
+    //     let valid_name = data.name.length > 1;
+    //     let valid_phone = data.phone.length > 9; //&& (/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
+    //     let valid_email = data.email.length > 6; //&& (/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i);
+    //     if (valid_name && valid_phone && valid_email) {
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "mailer/smart.php",
+    //             data,
+    //         }).done(function() {
+    //             $(this).find("input").val("");
+    //             $('#consultation, #order').fadeOut();
+    //             $('.overlay, #thanks').fadeIn('slow');
+    //             $('form').trigger('reset');
+    //         });
+    //         return false;
+    //     } else {
+    //         return false;
+    //     }        
+    // });
+
+    //Smooth scroll and pageup
+
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 1600){
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    });
+
+    $("a[href=#up]").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    });
+
+    new WOW().init();
 
 
-
-
-
-  });
+});
